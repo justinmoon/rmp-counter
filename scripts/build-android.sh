@@ -23,8 +23,12 @@ cargo build
         # -t arm64-v8a \
         # -t x86 \
         # -t x86_64 \
+
+# armeabi-v7a needed by xiaomi a3
+# arm64-v8a needed by pixel 3a emulator
 cargo ndk -o ../android/app/src/main/jniLibs \
         --manifest-path ./Cargo.toml \
+        -t armeabi-v7a \
         -t arm64-v8a \
         build --release
  

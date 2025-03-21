@@ -41,3 +41,7 @@ fix:
     cargo fix --allow-dirty
     cargo clippy --fix --allow-dirty
     cd ..
+
+# HACK: "home" button on this emulator is broken
+adb-home:
+    adb shell input keyevent 3

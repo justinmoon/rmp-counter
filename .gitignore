@@ -3,3 +3,6 @@
 
 # I think this is xcode???
 .build
+
+# nix / direnv
+.direnv
