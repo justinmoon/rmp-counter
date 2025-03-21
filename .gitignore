@@ -6,3 +6,6 @@
 
 # nix / direnv
 .direnv
+
+# uniffi build
+android/app/src/main/java/{{bundle-id-tld}}/{{bundle-id-org}}/{{bundle-id-app}}/uniffi/
