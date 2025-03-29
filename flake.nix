@@ -62,14 +62,7 @@
             export JAVA_HOME=${pkgs.jdk17.home}
             export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
-            echo "Android development environment initialized!"
-            echo "ANDROID_HOME: $ANDROID_HOME"
-            echo "ANDROID_NDK_ROOT: $ANDROID_NDK_ROOT"
-            echo ""
-            echo "Available commands:"
-            echo "  just build-android  - Build the Android app"
-            echo "  just run-android    - Run the Android app on an emulator"
-            echo "  just run-emulator   - Launch the Android emulator"
+            just --list
           '';
         };
       }
