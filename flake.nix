@@ -47,6 +47,7 @@
         default = pkgs.mkShell {
           buildInputs = [
             androidSdk
+            pkgs.jdk17
             pkgs.just
             pkgs.watchexec
           ];
@@ -58,6 +59,7 @@
             export ANDROID_HOME=${androidSdk}/share/android-sdk
             export ANDROID_SDK_ROOT=${androidSdk}/share/android-sdk
             export ANDROID_NDK_ROOT=${androidSdk}/share/android-sdk/ndk/28.0.13004108
+            export JAVA_HOME=${pkgs.jdk17.home}
             export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
             echo "Android development environment initialized!"
