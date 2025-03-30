@@ -10,5 +10,5 @@
 # Uniffi build
 android/app/src/main/java/{{bundle-id-tld}}/{{bundle-id-org}}/{{bundle-id-app}}/uniffi/
 
-# Android emulator
-emulator
+# $ANDROID_AVD_HOME which contains Android emulator configs
+android-avd
