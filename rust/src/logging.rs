@@ -18,16 +18,6 @@ pub fn init_logging() {
         log::info!("Android logging initialized");
     }
 
-    #[cfg(any(target_os = "ios", target_os = "macos"))]
-    {
-        oslog::OsLogger::new("com.rmp.{{ project-name | downcase }}")
-            .level_filter(LevelFilter::Debug)
-            .category_level_filter("Settings", LevelFilter::Trace)
-            .init()
-            .unwrap();
-        log::info!("iOS/macOS logging initialized");
-    }
-
     #[cfg(not(any(target_os = "android", target_os = "ios", target_os = "macos")))]
     {
         // Default to env_logger for other platforms
