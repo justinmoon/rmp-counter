@@ -27,7 +27,9 @@
     flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import nixpkgs {
+          inherit system;
+        };
 
         # Configure Android SDK
         androidSdk = android-nixpkgs.sdk.${system} (
@@ -53,20 +55,21 @@
         flakeboxLib = flakebox.lib.${system} {
           config = {
             typos.pre-commit.enable = false;
+            semgrep.pre-commit.enable = false;
+            semgrep.enable = false;
           };
         };
 
         buildPaths = [
           "Cargo.toml"
           "Cargo.lock"
-          ".cargo"
-          "rust/src"
+          "src"
         ];
 
         buildSrc = flakeboxLib.filterSubPaths {
           root = builtins.path {
             name = projectName;
-            path = ./.;
+            path = ./rust;
           };
           paths = buildPaths;
         };
