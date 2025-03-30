@@ -1,13 +1,9 @@
 default:
     just --list
 
-# Create a pixel 6 android emulator
-create-emulator:
-    avdmanager create avd --force --name emulator --package 'system-images;android-34;google_apis;arm64-v8a' --path $PWD/emulator -d pixel_6
-
-# Opens the android emulator created by `just create-emulator`
+# Opens the android emulator (installs one on first run)
 run-emulator:
-    emulator -avd emulator
+    bash scripts/run-emulator.sh
 
 # Cross-compile rust code for Android
 build-android:
