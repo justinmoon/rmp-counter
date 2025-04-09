@@ -2,12 +2,24 @@
 ignore = [
     "target",
     ".git",
+    "ios/{{project-name|capitalize}}.xcodeproj/project.xcworkspace/xcuserdata/justin.xcuserdatad/UserInterfaceState.xcuserstate",
 ]
 exclude = [
     "android/app/src/main/res/mipmap-*/",
     "android/gradle/wrapper/gradle-wrapper.jar",
 ]
 
+# FIXME: I can't fetch this variable in platform.rhai
+# [placeholders.platforms]
+# type = "array"
+# prompt = "Include which platforms?"
+# choices = ["SwiftUI", "Jetpack Compose"]
+# default = ["SwiftUI", "Jetpack Compose"]
+
+[placeholders]
+include_ios = { type = "bool", prompt = "Include iOS?", default = true }
+include_android = { type = "bool", prompt = "Include Android?", default = true }
+
 [hooks]
-pre = ["scripts/android.rhai", "scripts/more_vars.rhai"]
+pre = ["platform.rhai", "more_vars.rhai"]
 ignore = ["target", ".git"]
